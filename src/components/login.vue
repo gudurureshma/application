@@ -34,7 +34,7 @@ export default {
       };
       console.log("login works");
       this.$http
-        .post("http://192.168.1.111:3003/api/login", logindetalis)
+        .post("http://localhost:3003/api/login", logindetalis)
         .then(res => {
           console.log(res.body);
           console.log(res.body.message);

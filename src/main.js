@@ -3,7 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-// import store from './store'
+import store from './store'
 // import MyVuexStore from './store.js'
 // import socketio from 'socket.io';
 // import VueSocketIO from 'vue-socket.io';
@@ -17,6 +17,7 @@ import router from './router'
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: { App },
  

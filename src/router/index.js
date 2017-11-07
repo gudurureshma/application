@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import items from '@/components/items'
 import login from '@/components/login'
 import orders from '@/components/orders'
+import orderlist from '@/components/orderlist'
 import home from '@/components/home'
 import VueResource from "vue-resource"
 
@@ -38,6 +39,11 @@ export default new Router({
       path: '/orders',
       name: 'orders',
       component: orders
+    },
+    {
+      path: '/orderlist',
+      name: 'orderlist',
+      component: orderlist
     }
   ]
 })

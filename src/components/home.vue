@@ -43,8 +43,11 @@ export default {
     orders: function() {
       this.$router.push("/orders");
     },
-    items: function() {
+   items: function() {
+       console.log("dispatchd");
       this.$router.push("/items");
+      this.$store.dispatch('getItems');
+
     }
   }
 };
