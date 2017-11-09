@@ -8,6 +8,18 @@
           <span style="font-size:40px;margin-top:15px" v-on:click="orderlist()" class="glyphicon">&#xe081;</span>
     </div>
   </div>
+   <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th >ORDER-ID</th>
+                    <th >EMP ID</th>
+                   <th >DATE</th>
+                    <th >QUANTITY</th>
+                    <th >TOTAL-AMOUNT</th>
+                    
+                </tr>
+            </thead>
+      </table>      
 </div>
 </template>
 <script>

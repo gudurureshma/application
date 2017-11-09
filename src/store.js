@@ -13,7 +13,9 @@ let socket = socketio("http://localhost:3003");
 const store = new Vuex.Store({
   state: {
     itemsarray: [],
-  
+   
+    
+
   },
 
   mutations: {
@@ -50,14 +52,22 @@ const store = new Vuex.Store({
     },
 
     updateditemlist: (state, payload) => {
+      var payloadval = {
+        itemid: payload[0].itemid,
+        itemname: payload[0].itemname,
+        itemprice: payload[0].itemprice,
+        itemquantity: payload[0].itemquantity
+      }
+      var id = payload[0].itemid
       console.log("generated");
-      // state.itemsarray.push({
-      //   itemid: payload[0].itemid,
-      //   itemname: payload[0].itemname,
-      //   itemprice: payload[0].itemprice,
-      //   itemquantity: payload[0].itemquantity,
-      // })
-
+      for (var i = 0; i < state.itemsarray.length; i++) {
+        if (state.itemsarray[i].itemid == id) {
+          console.log("iitemsarrr == " + state.itemsarray[i].itemid)
+          let index = state.itemsarray.findIndex(x => x.itemid == state.itemsarray[i].itemid);
+          console.log("indesoff == " + index);
+          state.itemsarray.splice(index, 1, payloadval);
+        }
+      }
     },
 
 
@@ -91,7 +101,12 @@ const store = new Vuex.Store({
           return;
         }
       })
+    },
+    addOrderItems:({commit,state},payload )=>{
+      console.log(payload);
+      console.log("getting addorderitems");
     }
+    
 
   },
   getters: {
@@ -99,10 +114,10 @@ const store = new Vuex.Store({
       console.log("showitms list " + store.state.itemsarray);
       return store.state.itemsarray;
     },
-  //  shownewitem() {
-   
-  //     return store.state.newitem;
-  //   }
+    //  shownewitem() {
+
+    //     return store.state.newitem;
+    //   }
 
 
   },

@@ -58,40 +58,7 @@ td {
         </tbody>
    </table>
 
-  
-  
-<!-- <div class="row " >
-  <ul >
-      <li v-for="item in itemsarrays" :key="item.id" >
-         <div class="col-md-3 form-group "> 
-            <input type="text"  class="form-control"   placeholder="itemid">
-        </div>
-        <div class="col-md-3 form-group "> 
-            <input type="text"  class="form-control"   placeholder="itemname">
-        </div>
-        <div class="col-md-3 form-group">
-          <input type="text" class="form-control"   placeholder="price">
-        </div>
-        <div class="col-md-3 form-group">
-          <input type="text" class="form-control"  placeholder="quantity">
-        </div>
-        <div class="col-md-3 form-group">
-          <button type="button"   class="btn btn-info">edit</button>
-        </div>
-     </li>
-  </ul>  
-</div> -->
-<!-- <ul> -->
-  <!-- <li v-for="item in store.state.itemsarray">
-{{item.itemid}}
-  </li> -->
-  <!-- <li v-for="(item, itemIndex) in items" :key="itemIndex">
-    {{item.itemid}}
-    {{item.itemname}}
-    {{item.itemprice}}
-    {{item.itemquantity}}
-  </li> -->
-<!-- </ul> -->
+
 
 </div>
 </div>
@@ -110,8 +77,15 @@ export default {
       
     }
   },
+  mounted(){
+    this.dispatchevent();
+  },
 
   methods: {
+    dispatchevent(){
+     return this.$store.dispatch('getItems');
+      console.log("mounted");
+    },
     itemlist: function() {
       console.log("item clicked");
       this.itemsarrays.push({});
@@ -143,10 +117,12 @@ export default {
   },
   computed: {
     items() {
-      console.log(store.state.itemsarray);
+      // console.log(this.$store.state.itemsarray);
       return this.$store.getters.showitemlist;
+      
       //return store.state.itemsarray;
     }
-  }
-};
+  },
+
+}
 </script>

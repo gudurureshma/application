@@ -15,6 +15,7 @@
              
             </div>
         </div>
+        
 
          <div class="col-md-6 ">
             <div class="card">
@@ -46,7 +47,7 @@ export default {
    items: function() {
        console.log("dispatchd");
       this.$router.push("/items");
-      this.$store.dispatch('getItems');
+    //   this.$store.dispatch('getItems');
 
     }
   }
